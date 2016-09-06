@@ -1,6 +1,8 @@
 package de.seven.fate.rest;
 
 import de.seven.fate.endpoint.properties.cors.EndpointCorsProperties;
+import de.seven.fate.service.CorsEndpointService;
+import de.seven.fate.service.EndpointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class HomeResource {
 
     @Autowired
-    private EndpointCorsProperties endpointCorsProperties;
+    private EndpointService service;
 
     @Autowired
     private Environment environment;
@@ -36,7 +38,7 @@ public class HomeResource {
     @RequestMapping("/cors")
     @ResponseBody
     public EndpointCorsProperties corsProperties() {
-        return endpointCorsProperties;
+        return service.getEndpointCorsProperties();
     }
 
     @RequestMapping(value = "/property/{propertyName}", method = RequestMethod.GET)
