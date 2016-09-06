@@ -1,8 +1,11 @@
 package de.seven.fate.rest;
 
 import de.seven.fate.endpoint.properties.cors.EndpointCorsProperties;
+import de.seven.fate.entity.Order;
+import de.seven.fate.event.CreationEvent;
 import de.seven.fate.service.CorsEndpointService;
 import de.seven.fate.service.EndpointService;
+import de.seven.fate.service.PublishEventService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {HomeResource.class, EndpointCorsProperties.class, CorsEndpointService.class, EndpointService.class})
+@SpringBootTest(classes = {HomeResource.class, EndpointCorsProperties.class, CorsEndpointService.class, EndpointService.class, PublishEventService.class, Order.class, CreationEvent.class})
 @AutoConfigureMockMvc
 @PropertySource(value = {"classpath:application.properties", "classpath:endpoints-cors.properties"})
 public class HomeResourceTest {
@@ -37,7 +40,7 @@ public class HomeResourceTest {
 
         //then
         perform.andExpect(status().isOk());
-        perform.andExpect(content().string(equalTo("Hello Spring boot!")));
+        perform.andExpect(content().string(equalTo("Hello Spring Boot!")));
     }
 
     @Test

@@ -1,0 +1,5 @@
+
+###############################################################
+  Welcome to ${app.name} Application
+  Spring Boot version: ${spring-boot.formatted-version}
+###############################################################

@@ -1,8 +1,9 @@
 package de.seven.fate.rest;
 
 import de.seven.fate.endpoint.properties.cors.EndpointCorsProperties;
-import de.seven.fate.service.CorsEndpointService;
+import de.seven.fate.entity.Order;
 import de.seven.fate.service.EndpointService;
+import de.seven.fate.service.PublishEventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @ResponseBody
 public class HomeResource {
+
+    @Autowired
+    private PublishEventService eventService;
 
     @Autowired
     private EndpointService service;
@@ -26,6 +30,9 @@ public class HomeResource {
     @RequestMapping("/")
     @ResponseBody
     public String home() {
+
+        eventService.publishEvent(new Order());
+
         return "Hello Spring Boot!";
     }
 
