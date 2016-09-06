@@ -18,8 +18,8 @@ public class HomeResource {
     @Autowired
     private Environment environment;
 
-    @Value("${endpoints.cors.maxAge}")
-    private Long maxAge;
+    @Value("${endpoints.cors.foo:bar}")
+    private String foo;
 
     @RequestMapping("/")
     @ResponseBody

@@ -27,6 +27,8 @@ public class Application {
 
         ConfigurableEnvironment environment = new StandardEnvironment();
 
+        environment.setActiveProfiles("default");
+
         context.setEnvironment(environment);
     }
 }

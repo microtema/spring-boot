@@ -17,6 +17,7 @@ public class EndpointCorsProperties {
 
     private long maxAge;
     private boolean allowCredentials;
+    private Host host;
 
     public long getMaxAge() {
         return maxAge;
@@ -32,5 +33,13 @@ public class EndpointCorsProperties {
 
     public void setAllowCredentials(boolean allowCredentials) {
         this.allowCredentials = allowCredentials;
+    }
+
+    public Host getHost() {
+        return host;
+    }
+
+    public void setHost(Host host) {
+        this.host = host;
     }
 }
