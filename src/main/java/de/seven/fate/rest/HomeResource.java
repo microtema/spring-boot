@@ -26,7 +26,7 @@ public class HomeResource {
     @RequestMapping("/")
     @ResponseBody
     public String home() {
-        return "Hello Spring boot!";
+        return "Hello Spring Boot!";
     }
 
     @RequestMapping("/hello")
