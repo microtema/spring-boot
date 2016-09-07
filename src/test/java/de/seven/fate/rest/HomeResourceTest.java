@@ -3,14 +3,16 @@ package de.seven.fate.rest;
 import de.seven.fate.endpoint.properties.cors.EndpointCorsProperties;
 import de.seven.fate.entity.Order;
 import de.seven.fate.event.CreationEvent;
-import de.seven.fate.service.CorsEndpointService;
-import de.seven.fate.service.EndpointService;
-import de.seven.fate.service.PublishEventService;
+import de.seven.fate.rule.ComplexOrderRule;
+import de.seven.fate.rule.OrderRule;
+import de.seven.fate.rule.SimpleOrderRule;
+import de.seven.fate.service.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -25,9 +27,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {HomeResource.class, EndpointCorsProperties.class, CorsEndpointService.class, EndpointService.class, PublishEventService.class, Order.class, CreationEvent.class})
+@SpringBootTest(classes = {HomeResource.class, EndpointCorsProperties.class, CorsEndpointService.class, EndpointService.class,
+        PublishEventService.class, Order.class, OrderRule.class, SimpleOrderRule.class, ComplexOrderRule.class, CreationEvent.class, OrderValidationService.class, OrderValidationServiceImpl.class})
+@ImportResource("classpath:beans.xml")
 @AutoConfigureMockMvc
-@PropertySource(value = {"classpath:application.properties", "classpath:endpoints-cors.properties"})
 public class HomeResourceTest {
 
     @Autowired

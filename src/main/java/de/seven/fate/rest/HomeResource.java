@@ -3,6 +3,7 @@ package de.seven.fate.rest;
 import de.seven.fate.endpoint.properties.cors.EndpointCorsProperties;
 import de.seven.fate.entity.Order;
 import de.seven.fate.service.EndpointService;
+import de.seven.fate.service.OrderValidationService;
 import de.seven.fate.service.PublishEventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +27,12 @@ public class HomeResource {
 
     @Value("${endpoints.cors.foo:bar}")
     private String foo;
+
+    @Autowired
+    private OrderValidationService orderValidationService;
+
+    @Autowired
+    private OrderValidationService complexOrderValidationService;
 
     @RequestMapping("/")
     @ResponseBody

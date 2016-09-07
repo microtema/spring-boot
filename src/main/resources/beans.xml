@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="orderValidationService" class="de.seven.fate.service.OrderValidationServiceImpl" >
+        <constructor-arg>
+            <set>
+                <ref bean="simpleOrderRule"></ref>
+            </set>
+        </constructor-arg>
+    </bean>
+
+    <bean id="complexOrderValidationService" class="de.seven.fate.service.OrderValidationServiceImpl" >
+        <constructor-arg>
+            <set>
+                <ref bean="simpleOrderRule"></ref>
+                <ref bean="complexOrderRule"></ref>
+            </set>
+        </constructor-arg>
+    </bean>
+
+</beans>
