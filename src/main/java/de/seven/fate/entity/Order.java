@@ -1,6 +1,8 @@
 package de.seven.fate.entity;
 
-public class Order {
+import java.io.Serializable;
+
+public class Order implements Serializable {
 
     private boolean done;
 

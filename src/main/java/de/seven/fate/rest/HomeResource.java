@@ -31,7 +31,9 @@ public class HomeResource {
     @ResponseBody
     public String home() {
 
-        eventService.publishEvent(new Order());
+        Order order = new Order();
+        order.setDone(true);
+        eventService.publishEvent(order);
 
         return "Hello Spring Boot!";
     }
