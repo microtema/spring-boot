@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * Annotation-driven event listener, automatically register an ApplicationListener matching the signature of the method
  */
 @Component
-public class ApplicationRefreshListener2 {
+public class ApplicationRefreshListenerAnnotationDriven {
 
     @EventListener
     public void onApplicationEvent(ContextRefreshedEvent event) {

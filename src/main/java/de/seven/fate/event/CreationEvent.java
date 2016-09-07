@@ -1,26 +1,16 @@
 package de.seven.fate.event;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
+import de.seven.fate.entity.Order;
 
-public class CreationEvent<T> {
+public class CreationEvent {
 
-    private final T source;
+    private final Order order;
 
-    public CreationEvent(final T source) {
-        this.source = source;
+    public CreationEvent(Order order) {
+        this.order = order;
     }
 
-    public final T getSourceObject() {
-        return source;
-    }
-
-
-    public Class<T> getGenericType() {
-
-        ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
-        Type[] actualTypeArguments = genericSuperclass.getActualTypeArguments();
-
-        return (Class<T>) actualTypeArguments[0];
+    public Order getOrder() {
+        return order;
     }
 }

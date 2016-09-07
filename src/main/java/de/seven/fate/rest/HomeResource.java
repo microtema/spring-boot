@@ -19,7 +19,7 @@ public class HomeResource {
     private PublishEventService eventService;
 
     @Autowired
-    private EndpointService service;
+    private EndpointService endpointService;
 
     @Autowired
     private Environment environment;
@@ -47,7 +47,7 @@ public class HomeResource {
     @RequestMapping("/cors")
     @ResponseBody
     public EndpointCorsProperties corsProperties() {
-        return service.getEndpointCorsProperties();
+        return endpointService.getEndpointCorsProperties();
     }
 
     @RequestMapping(value = "/property/{propertyName}", method = RequestMethod.GET)
