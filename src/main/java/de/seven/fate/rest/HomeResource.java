@@ -42,6 +42,8 @@ public class HomeResource {
         order.setDone(true);
         eventService.publishEvent(order);
 
+        orderValidationService.validate(order);
+
         return "Hello Spring Boot!";
     }
 

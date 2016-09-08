@@ -2,6 +2,8 @@ package de.seven.fate.service;
 
 import de.seven.fate.entity.Order;
 import de.seven.fate.rule.OrderRule;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import java.util.Set;
 

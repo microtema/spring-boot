@@ -7,6 +7,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -15,12 +16,12 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * Created by mtema on 02.09.2016.
  */
 //@SpringBootApplication
-//@PropertySource(value = {"application.properties", "endpoints-cors.properties"})
 @ImportResource("classpath:beans.xml")
 @Configuration
 @EnableAutoConfiguration
 @EnableWebMvc
 @ComponentScan
+@EnableAspectJAutoProxy
 public class Application extends SpringBootServletInitializer {
 
     @Override
