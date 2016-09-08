@@ -7,7 +7,7 @@
     <bean id="orderValidationService" class="de.seven.fate.service.OrderValidationServiceImpl" >
         <constructor-arg>
             <set>
-                <ref bean="simpleOrderRule"></ref>
+                <ref bean="simpleOrderRule"/>
             </set>
         </constructor-arg>
     </bean>
@@ -15,8 +15,8 @@
     <bean id="complexOrderValidationService" class="de.seven.fate.service.OrderValidationServiceImpl" >
         <constructor-arg>
             <set>
-                <ref bean="simpleOrderRule"></ref>
-                <ref bean="complexOrderRule"></ref>
+                <ref bean="simpleOrderRule"/>
+                <ref bean="complexOrderRule"/>
             </set>
         </constructor-arg>
     </bean>
