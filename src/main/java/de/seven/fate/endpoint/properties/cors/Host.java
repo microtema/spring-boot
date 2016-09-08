@@ -1,6 +1,10 @@
 package de.seven.fate.endpoint.properties.cors;
 
+import javax.validation.constraints.NotNull;
+
 public class Host {
+
+    @NotNull
     private String ip;
     private int port;
 

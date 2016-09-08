@@ -7,6 +7,7 @@
     <groupId>de.seven.fate</groupId>
     <artifactId>spring-boot</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -20,6 +21,7 @@
 
     <dependencies>
 
+        <!-- required dependencies for Spring Boot-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -31,18 +33,6 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>1.1.0.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
-        </dependency>
-
         <!--provide additional development-time features provide Automatic restart-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -50,16 +40,45 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- Starter for testing Spring Boot applications with libraries including JUnit, Hamcrest and Mockito -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
+        <!--
+         When you simply run the application,
+         Spring Boot will use its embedded tomcat server to run your application.
+         If you're planning to use another standalone tomcat server to deploy your boot application,
+         first you should tell your build tool to package your application as a war not jar.
+         Then modify your main boot application entry point to support that and finally
+         deploy your war file to your tomcat server either by using Intellij or manually.
+         -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
         <!--Add production-grade services -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- Java2EE excluding Hibernate world-->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+
+        <!-- third-party dependencies -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
         </dependency>
 
     </dependencies>
@@ -70,9 +89,12 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <properties>
-                <endpoints.cors.host.port>6060</endpoints.cors.host.port>
-            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
         </profile>
     </profiles>
 
@@ -83,6 +105,16 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/test/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 
     <repositories>
