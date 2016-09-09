@@ -1,4 +1,4 @@
-package de.seven.fate.interceptor;
+package de.seven.fate.enums;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -4,7 +4,7 @@ import de.seven.fate.aspect.UserNameAspect;
 import de.seven.fate.endpoint.properties.cors.EndpointCorsProperties;
 import de.seven.fate.entity.Order;
 import de.seven.fate.event.CreationEvent;
-import de.seven.fate.interceptor.UserName;
+import de.seven.fate.enums.UserName;
 import de.seven.fate.rule.ComplexOrderRule;
 import de.seven.fate.rule.OrderRule;
 import de.seven.fate.rule.SimpleOrderRule;

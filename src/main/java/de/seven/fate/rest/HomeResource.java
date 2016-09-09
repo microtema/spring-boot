@@ -2,7 +2,7 @@ package de.seven.fate.rest;
 
 import de.seven.fate.endpoint.properties.cors.EndpointCorsProperties;
 import de.seven.fate.entity.Order;
-import de.seven.fate.interceptor.UserName;
+import de.seven.fate.enums.UserName;
 import de.seven.fate.service.EndpointService;
 import de.seven.fate.service.OrderValidationService;
 import de.seven.fate.service.PublishEventService;

@@ -1,6 +1,6 @@
 package de.seven.fate.aspect;
 
-import de.seven.fate.interceptor.UserName;
+import de.seven.fate.enums.UserName;
 import de.seven.fate.util.ClassUtil;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
