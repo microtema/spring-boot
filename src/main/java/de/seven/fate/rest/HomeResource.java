@@ -2,6 +2,7 @@ package de.seven.fate.rest;
 
 import de.seven.fate.endpoint.properties.cors.EndpointCorsProperties;
 import de.seven.fate.entity.Order;
+import de.seven.fate.interceptor.UserName;
 import de.seven.fate.service.EndpointService;
 import de.seven.fate.service.OrderValidationService;
 import de.seven.fate.service.PublishEventService;
@@ -36,7 +37,7 @@ public class HomeResource {
 
     @RequestMapping("/")
     @ResponseBody
-    public String home() {
+    public String home(@UserName String userName) {
 
         Order order = new Order();
         order.setDone(true);
@@ -61,7 +62,7 @@ public class HomeResource {
 
     @RequestMapping(value = "/property/{propertyName}", method = RequestMethod.GET)
     @ResponseBody
-    public String getProperty(@PathVariable("propertyName") String propertyName) {
+    public String getProperty(@UserName String userName, @PathVariable("propertyName") String propertyName) {
         return environment.getProperty(propertyName);
     }
 }

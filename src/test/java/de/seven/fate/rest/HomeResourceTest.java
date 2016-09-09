@@ -1,8 +1,10 @@
 package de.seven.fate.rest;
 
+import de.seven.fate.aspect.UserNameAspect;
 import de.seven.fate.endpoint.properties.cors.EndpointCorsProperties;
 import de.seven.fate.entity.Order;
 import de.seven.fate.event.CreationEvent;
+import de.seven.fate.interceptor.UserName;
 import de.seven.fate.rule.ComplexOrderRule;
 import de.seven.fate.rule.OrderRule;
 import de.seven.fate.rule.SimpleOrderRule;
@@ -13,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -28,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {HomeResource.class, EndpointCorsProperties.class, CorsEndpointService.class, EndpointService.class,
-        PublishEventService.class, Order.class, OrderRule.class, SimpleOrderRule.class, ComplexOrderRule.class, CreationEvent.class, OrderValidationService.class, OrderValidationServiceImpl.class})
+        PublishEventService.class, Order.class, OrderRule.class, SimpleOrderRule.class, ComplexOrderRule.class, CreationEvent.class, OrderValidationService.class, OrderValidationServiceImpl.class, UserName.class, UserNameAspect.class})
 @ImportResource("classpath:beans.xml")
 @AutoConfigureMockMvc
 public class HomeResourceTest {
